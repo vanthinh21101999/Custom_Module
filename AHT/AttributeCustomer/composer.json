@@ -1,0 +1,17 @@
+{
+    "name": "aht/attributecustomer",
+    "description": "",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+      "MIT"
+    ],
+    "autoload": {
+      "psr-4": {
+        "AHT\\AttributeCustomer\\": ""
+      },
+      "files": [
+        "registration.php"
+      ]
+    }
+  }

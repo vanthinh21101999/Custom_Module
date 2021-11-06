@@ -1,0 +1,93 @@
+<?php 
+$items = $block->getDataBlocks();
+$slidesToShow = $block->getData('slidetoshow');
+$slidesToScroll = $block->getData('slidetoscroll');
+$moduleStatus = $this->helper('AHT\Portfolio\Helper\Data')->getConfig('portfolio/portfolio/email');
+?>
+<h2 style="color: greenyellow;"><?= $moduleStatus ?></h2>
+<div class="products wrapper grid products-grid">
+    <ol class="products list items product-items my-list">
+
+        <?php foreach($items as $item):  ?>
+            <?php $imagePath = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'portfolio/index/' . $item['images'];
+            ?>
+            <li class="item product product-item">
+                <div class="product-item-info" data-container="product-grid">
+                    <a href="<?php echo $block->getUrl('portfolio/index/detail').'id/'.$item['id']; ?>" class="product photo product-item-photo"
+                        tabindex="-1">
+                        <span class="product-image-container" style="width:240px;">
+                            <span class="product-image-wrapper" style="padding-bottom: 125%;">
+                                <img class="product-image-photo"
+                                src="<?php echo $imagePath  ?>"
+                                max-width="240" max-height="300" alt="Name of product"></span>
+                            </span>
+                        </a>
+                        <div class="product details product-item-details">
+                            <strong class="product name product-item-name">
+                                <a class="product-item-link" href="<?php echo $block->getUrl('portfolio/index/detail').'id/'.$item['id']; ?>">
+                                    <?php echo $item['title'] ?> </a>
+                                </strong>
+                                <div class="price-box price-final_price" data-role="priceBox" data-product-id="436"
+                                data-price-box="product-id-436"><span class="normal-price">
+                                    <span class="price-container price-final_price tax weee">
+                                        <span class="price-label">Thể loại</span>
+                                        <span id="product-price-436" data-price-amount="45" data-price-type="finalPrice"
+                                        class="price-wrapper "><span class="price"><?php echo $item['name'] ?></span></span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+
+            
+        </ol>
+    </div>
+
+    <script type="text/javascript">
+        require(['jquery', 'slick'], function($){
+            $(function(){
+                $('.my-list').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 300,
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            arrows: true
+                        }
+                    },
+                    {
+                        breakpoint: 770,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 400,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                    ]
+                });
+            });
+        });
+    </script>

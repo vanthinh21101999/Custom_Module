@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+   	    <title>Portfolio</title>
+    </head>
+    <body>
+    	<referenceContainer name="sidebar.additional" remove="true"/>
+        <referenceContainer name="content">
+            <block class="AHT\Portfolio\Block\Frontend\Portfolio\Index" name="aht_portfolio_index" template="portfolio/index.phtml" ifconfig="portfolio/portfolio/is_enabled" />
+        </referenceContainer>
+    </body>
+</page>

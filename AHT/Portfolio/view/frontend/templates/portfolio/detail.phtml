@@ -1,0 +1,13 @@
+<?php 
+    $item = $block->getEditRecord();
+    $image = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA) . 'portfolio/index/' . $item['images'];
+?>
+<div class="container">
+    <h2><?php echo $item['title'] ?></h2>
+    <img src="<?php echo $image?>" width="240" alt="Name of product">
+    <p>
+        Thể loại: <?php echo $item['name'] ?><br/>
+        Mô tả: <?php echo $item['description'] ?><br/>
+        
+    </p>
+</div>

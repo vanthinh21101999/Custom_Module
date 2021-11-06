@@ -1,0 +1,33 @@
+<?php 
+
+namespace AHT\Portfolio\Controller\Adminhtml\Report\Sales;
+
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
+
+class Index extends \Magento\Backend\App\Action
+{
+    protected $resultPageFactory;
+    
+    const ADMIN_RESOURCE = "AHT_Portfolio::index";
+    
+    public function __construct(
+        Context $context,
+        PageFactory $resultPageFactory
+    ) {
+        parent::__construct($context);
+        $this->resultPageFactory = $resultPageFactory;
+    }
+
+    public function execute()
+    {
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage->setActiveMenu('AHT_Portfolio:portfolio');
+        $resultPage->addBreadcrumb(__('Portfolio'), __('Portfolio'));
+        $resultPage->addBreadcrumb(__('Manage Portfolio'), __('Manage Portfolio'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Sales Agent'));
+        return $resultPage;
+    } 
+
+ 
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="aht_portfolio_slider" class="AHT\Portfolio\Block\Frontend\Portfolio\Index" is_email_compatible="false" placeholder_image="Magento_Widget::placeholder.gif">
+        <label translate="true">Portfolio index slider</label>
+        <description translate="true">AHT Portfolio index slider for widget</description>
+        <parameters>
+            <parameter name="slidetoshow" xsi:type="text" required="true" visible="true">
+                <label translate="true">Slide to show (frontend)</label>
+            </parameter>
+            <parameter name="slidetoscroll" xsi:type="select" visible="true" required="true" sort_order="20">
+                <label translate="true">Slide to scroll</label>
+                <options>
+                    <option name="1" value="1">
+                        <label>1</label>
+                    </option>
+                    <option name="2" value="2" selected="true">
+                        <label>2</label>
+                    </option>
+                    <option name="3" value="3">
+                        <label>3</label>
+                    </option>
+                    <option name="4" value="4">
+                        <label>4</label>
+                    </option>
+                    <option name="5" value="5">
+                        <label>5</label>
+                    </option>
+                </options>
+            </parameter>
+             <parameter name="template" xsi:type="select" required="true" visible="true">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="portfolio/index.phtml" selected="true">
+                        <label translate="true">Product list slider</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
